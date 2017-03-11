@@ -78,6 +78,7 @@ function forwardResponseToApiGateway(server, response, context) {
                 isBase64Encoded = false
             }
 
+            delete headers["transfer-encoding"]
             const successResponse = {statusCode, body, headers, isBase64Encoded}
 
             context.succeed(successResponse)
